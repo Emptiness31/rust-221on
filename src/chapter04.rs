@@ -15,8 +15,8 @@ fn test2() {
 
 #[test]
 fn test3() {
-    let x = 5; //чи є різниця в завданні i32 or u32?
-    assert_eq!("i32".to_string(), type_of(&x)); //or u32
+    let x: u32 = 5;
+    assert_eq!("u32".to_string(), type_of(&x));
     println!("Success!");
 }
 // Get the type of given variable, return a string representation of the type  , e.g "i8", "u8", "i32", "u32"
