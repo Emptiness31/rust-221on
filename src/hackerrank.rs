@@ -1,4 +1,3 @@
-
 #[test]
 fn test1() {
     use std::io;
@@ -18,19 +17,19 @@ fn test1() {
     println!("{}", _num_1 + _num_2);
 }
 
-
-fn simple_array_sum(ar: &[i32]) -> i32 {
-    let mut sum = 0;
-    for &num in ar {
-        sum += num;
-    }
-    sum
-}
 #[test]
 fn test2() {
     use std::env;
     use std::fs::File;
     use std::io::{self, BufRead, Write};
+
+    fn simple_array_sum(ar: &[i32]) -> i32 {
+        let mut sum = 0;
+        for &num in ar {
+            sum += num;
+        }
+        sum
+    }
 
     let stdin = io::stdin();
     let mut stdin_iterator = stdin.lock().lines();
