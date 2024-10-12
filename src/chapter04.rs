@@ -1,5 +1,6 @@
+/// https://practice.course.rs/basic-types/numbers.html
 #[test]
-fn test1() {
+fn test41() {
     let x: i32 = 5;
     let mut _y = 5;
     _y = x;
@@ -8,13 +9,13 @@ fn test1() {
 }
 
 #[test]
-fn test2() {
+fn test42() {
     let _v: u16 = 38_u8 as u16;
     println!("Success!");
 }
 
 #[test]
-fn test3() {
+fn test43() {
     let x: u32 = 5;
     assert_eq!("u32".to_string(), type_of(&x));
     println!("Success!");
@@ -25,21 +26,21 @@ fn type_of<T>(_: &T) -> String {
 }
 
 #[test]
-fn test4() {
+fn test44() {
     assert_eq!(i8::MAX, 127);
     assert_eq!(u8::MAX, 255);
     println!("Success!");
 }
 
 #[test]
-fn test5() {
+fn test45() {
     let v1 = 251_u16 + 8;
     let v2 = i16::checked_add(251, 8).unwrap();
     println!("{},{}",v1,v2);
 }
 
 #[test]
-fn test6() {
+fn test46() {
     let v = 1_024 + 0xff + 0o77 + 0b1111_1111; // 1024 + 255 + 63 + 255
     assert_eq!(v, 1597);
     println!("Success!");
@@ -47,7 +48,7 @@ fn test6() {
 
 // Fill the blank to make it work
 #[test]
-fn test7() {
+fn test47() {
     let x = 1_000.000_1; // f64
     let _y: f32 = 0.12; // f32
     let _z = 0.01_f64; // f64
@@ -59,13 +60,13 @@ fn type_of1<T>(_: &T) -> String {
 }
 
 #[test]
-fn test8() {
+fn test48() {
     assert_eq!(0.1_f32 + 0.2_f32, 0.3_f32); //or as f32
     println!("Success!");
 }
 
 #[test]
-fn test9() {
+fn test49() {
     let mut sum = 0;
     for i in -3..2 {
         sum += i
@@ -77,31 +78,26 @@ fn test9() {
 }
 use std::ops::{Range, RangeInclusive};
 #[test]
-fn test10() {
+fn test410() {
     assert_eq!(1..5, Range{ start: 1, end: 5 }); //була проблема з непотрібними дужками лол
     assert_eq!(1..=5, RangeInclusive::new(1, 5)); //
     println!("Success!");
 }
 
 #[test]
-fn test11() {
+fn test411() {
     // Integer addition
     assert_eq!(1u32 + 2u32, 3u32);
-
     // Integer subtraction
     assert_eq!(1i32 - 2i32, -1i32);
     assert_eq!(1i8 - 2i8, -1i8); // з 1u8 в і8
-
     assert_eq!(3 * 50, 150);
-
     assert_eq!(9.6_f32 / 3.2_f32, 3.0_f32); // error ! make it work
-
     assert_eq!(24 % 5, 4);
     // Short-circuiting boolean logic
     assert!(true && false == false);
     assert!(true || false == true);
     assert_eq!(!true, false);
-
     // Bitwise operations
     println!("0011 AND 0101 is {:04b}", 0b0011u32 & 0b0101);
     println!("0011 OR 0101 is {:04b}", 0b0011u32 | 0b0101);
@@ -109,9 +105,10 @@ fn test11() {
     println!("1 << 5 is {}", 1u32 << 5);
     println!("0x80 >> 2 is 0x{:x}", 0x80u32 >> 2);
 }
-use std::mem::size_of_val;
+/// https://practice.course.rs/basic-types/char-bool-unit.html
 #[test]
-fn test12() {
+fn test412() {
+    use std::mem::size_of_val;
     let c1 = 'a';
     assert_eq!(size_of_val(&c1),4); // 4байта
     let c2 = '中';
@@ -120,7 +117,7 @@ fn test12() {
 }
 
 #[test]
-fn test13() {
+fn test413() {
     let c1 = '中'; //" " в ' '
     print_char(c1);
 }
@@ -129,7 +126,7 @@ fn print_char(c : char) {
 }
 
 #[test]
-fn test14() {
+fn test414() {
     let _f: bool = false;
     let t = true;
     if t {
@@ -138,7 +135,7 @@ fn test14() {
 }
 
 #[test]
-fn test15() {
+fn test415() {
     let f = false; //було тру
     let t = false; //було let t = true && false;
     assert_eq!(t, f);
@@ -146,7 +143,7 @@ fn test15() {
 }
 
 #[test]
-fn test16() {
+fn test416() {
     let _v: () = ();
     let _s = (2, 3); //not _v? _v:(i32, i32) помилка
     assert_eq!(_v, implicitly_ret_unit());
@@ -157,14 +154,14 @@ fn implicitly_ret_unit() {
 }
 
 #[test]
-fn test17() {
+fn test417() {
     let unit: () = ();
     assert_eq!(size_of_val(&unit), 0);
     println!("Success!");
 }
-
+/// https://practice.course.rs/basic-types/statements-expressions.html
 #[test]
-fn test18() {
+fn test418() {
     let v = { //or v: i32
         let mut x = 1;
         x += 2 //;
@@ -175,7 +172,7 @@ fn test18() {
 }
 
 #[test]
-fn test19() {
+fn test419() {
     let v = {
         let x = 3;
         x
@@ -185,7 +182,7 @@ fn test19() {
 }
 
 #[test]
-fn test20() {
+fn test420() {
     let s = sum(1 , 2);
     assert_eq!(s, 3);
     println!("Success!");
@@ -193,9 +190,9 @@ fn test20() {
 fn sum(x: i32, y: i32) -> i32 {
     x + y //not ";"
 }
-
+/// https://practice.course.rs/basic-types/functions.html
 #[test]
-fn test21() {
+fn test421() {
     // Don't modify the following two lines!
     let (x, y) = (1, 2);
     let s = sum1(x, y);
@@ -207,7 +204,7 @@ fn sum1(x: i32, y: i32) -> i32 {
 }
 
 #[test]
-fn test22() {
+fn test422() {
     print();
 }
 // Replace i32 with another type
@@ -218,7 +215,7 @@ fn print() -> () {
 #[test]
 // Solve it in two ways
 // DON'T let `println!` work
-fn test23() {
+fn test423() {
     never_return();
     println!("Failed!");
 }
@@ -228,7 +225,7 @@ fn never_return() -> () { //було так fn never_return() -> !
 }
 
 #[test]
-fn test24() {
+fn test424() {
     println!("Success!");
 }
 fn get_option(tp: u8) -> Option<i32> {
@@ -249,7 +246,7 @@ fn never_return_fn() -> ! {
 }
 
 #[test]
-fn test25() {
+fn test425() {
     // FILL in the blank
     let b = false;
     let _v = match b {
