@@ -1,11 +1,12 @@
+/// https://practice.course.rs/compound-types/string.html
 #[test]
-fn test1() {
+fn test61() {
     let _s: &str = "hello, world";
     println!("Success!");
 }
 
 #[test]
-fn test2() {
+fn test62() {
     let s: Box<str> = "hello, world".into();
     greetings(&s)
 }
@@ -14,7 +15,7 @@ fn greetings(s: &str) {
 }
 
 #[test]
-fn test3() {
+fn test63() {
     let mut s = String::from ("");
     s.push_str("hello, world");
     s.push('!');
@@ -23,7 +24,7 @@ fn test3() {
 }
 
 #[test]
-fn test4() {
+fn test64() {
     let mut s = String::from("hello");
     s.push(',');
     s.push_str(" world");
@@ -32,7 +33,7 @@ fn test4() {
 }
 
 #[test]
-fn test5() {
+fn test65() {
     let s = String::from("I like dogs");
     // Allocate new memory and store the modified string there
     let s1 = s.replace("dogs", "cats");
@@ -42,7 +43,7 @@ fn test5() {
 
 #[test]
 // Fix errors without removing any line
-fn test6() {
+fn test66() {
     let s1 = String::from("hello,");
     let s2 = String::from("world!");
     let s3 = s1 + &s2;
@@ -52,7 +53,7 @@ fn test6() {
 
 #[test]
 // Fix error with at least two solutions
-fn test7() {
+fn test67() {
     let s = "hello, world";
     greetings1(s.to_string()) // or greetings((&s).to_string())
 }
@@ -62,14 +63,14 @@ fn greetings1(s: String) {
 
 #[test]
 // Use two approaches to fix the error and without adding a new line
-fn test8() {
+fn test68() {
     let s = "hello, world".to_string(); //or let s = String::from("hello, world");
     let _s1: &str = &s;
     println!("Success!");
 }
 
 #[test]
-fn test9() {
+fn test69() {
     // You can use escapes to write bytes by their hexadecimal values
     // Fill the blank below to show "I'm writing Rust"
     let byte_escape = "I'm writing Ru\x73\x74!";
@@ -88,8 +89,9 @@ fn test9() {
 
 #[test]
 /* Fill in the blank and fix the errors */
-fn test10() {
-    let raw_str = r"Escapes don't work here: \x3F \u{211D}";
+//ascii
+fn test610() {
+    let raw_str = r"Escapes don't work here: ? ℝ";
     // Modify above line to make it work
     assert_eq!(raw_str, "Escapes don't work here: ? ℝ");
     // If you need quotes in a raw string, add a pair of #s
@@ -100,13 +102,13 @@ fn test10() {
     let delimiter = r###"A string with "# in it. And even "##!"###;
     println!("{}", delimiter);
     // Fill the blank
-    //let long_delimiter = __;
-    //assert_eq!(long_delimiter, "Hello, \"##\"");
+    let long_delimiter = "Hello, \"##\"";
+    assert_eq!(long_delimiter, "Hello, \"##\"");
     println!("Success!");
 }
 
 #[test]
-fn test11() {
+fn test611() {
     let s1 = String::from("hi,中国");
     let h = &s1[0..1]; // Modify this line to fix the error, tips: `h` only takes 1 byte in UTF8 format
     assert_eq!(h, "h");
@@ -116,15 +118,15 @@ fn test11() {
 }
 
 #[test]
-fn test12() {
+fn test612() {
     // Fill the blank to print each char in "你好，世界"
     for c in "你好，世界".chars() {
         println!("{}", c)
     }
 }
-
+/// https://practice.course.rs/compound-types/array.html
 #[test]
-fn test13() {
+fn test613() {
     // Fill the blank with proper array type
     let arr: [i32; 5] = [1, 2, 3, 4, 5];
     // Modify the code below to make it work
@@ -133,7 +135,7 @@ fn test13() {
 }
 
 #[test]
-fn test14() {
+fn test614() {
     // We can ignore parts of the array type or even the whole type, let the compiler infer it for us
     let _arr0 = [1, 2, 3];
     let arr: [_; 3] = ['a', 'b', 'c'];
@@ -145,7 +147,7 @@ fn test14() {
 }
 
 #[test]
-fn test15() {
+fn test615() {
     // Fill the blank
     let list: [i32; 100] = [1; 100] ;
     assert_eq!(list[0], 1);
@@ -154,14 +156,14 @@ fn test15() {
 }
 
 #[test]
-fn test16() {
+fn test616() {
     // Fix the error
     let _arr: [i32; 3] = [1, 2, 3];
     println!("Success!");
 }
 
 #[test]
-fn test17() {
+fn test617() {
     let arr = ['a', 'b', 'c'];
     let ele = arr[0]; // Only modify this line to make the code work!
     assert_eq!(ele, 'a');
@@ -169,7 +171,7 @@ fn test17() {
 }
 
 #[test]
-fn test18() {
+fn test618() {
     let names = [String::from("Sunfei"), "Sunface".to_string()];
     // `Get` returns an Option<T>, it's safe to use
     let _name0 = names.get(0).unwrap();
@@ -177,10 +179,10 @@ fn test18() {
     let _name1 = &names[1];
     println!("Success!");
 }
-
+/// https://practice.course.rs/compound-types/slice.html
 #[test]
 // Fix the errors, DON'T add new lines!
-fn test19() {
+fn test619() {
     let arr = [1, 2, 3];
     let _s1: &[i32] = &arr[0..2];
     let _s2: &str = &("hello, world" as &str);
@@ -188,7 +190,7 @@ fn test19() {
 }
 
 #[test]
-fn test20() {
+fn test620() {
     let arr: [char; 3] = ['中', '国', '人'];
     let slice = &arr[..2];
     // Modify '8' to make it work
@@ -199,7 +201,7 @@ fn test20() {
 }
 
 #[test]
-fn test21() {
+fn test621() {
     let arr: [i32; 5] = [1, 2, 3, 4, 5];
     // Fill the blanks to make the code work
     let slice: &[i32] = &arr[1..4];
@@ -208,7 +210,7 @@ fn test21() {
 }
 
 #[test]
-fn test22() {
+fn test622() {
     let s = String::from("hello");
     let slice1 = &s[0..2];
     // Fill the blank to make the code work, DON'T USE 0..2 again
@@ -218,7 +220,7 @@ fn test22() {
 }
 
 #[test]
-fn test23() {
+fn test623() {
     let s = "你好，世界";
     // Modify this line to make the code work
     let slice = &s[0..3];
@@ -228,7 +230,7 @@ fn test23() {
 
 #[test]
 // Fix errors
-fn test24() {
+fn test624() {
     let mut s = String::from("hello world");
     // Here, &s is `&String` type, but `first_letter` needs a `&str` type.
     // It works because `&String` can be implicitly converted to `&str. If you want to know more,
@@ -240,9 +242,9 @@ fn test24() {
 fn first_letter(s: &str) -> &str {
     &s[..1]
 }
-
+/// https://practice.course.rs/compound-types/tuple.html
 #[test]
-fn test25() {
+fn test625() {
     let _t0: (u8,i16) = (0, -1);
     // Tuples can be tuple's members
     let _t1: (u8, (i16, u32)) = (0, (-1, 1));
@@ -252,20 +254,20 @@ fn test25() {
 }
 
 #[test]
-fn test26() {
+fn test626() {
     let t = ("i", "am", "sunface");
     assert_eq!(t.2, "sunface");
     println!("Success!");
 }
 
 #[test]
-fn test27() {
+fn test627() {
     let too_long_tuple = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12); //13);
     println!("too long tuple: {:?}", too_long_tuple); //or println!("too long tuple: {:?}", 13);
 }
 
 #[test]
-fn test28() {
+fn test628() {
     let tup = (1, 6.4, "hello");
     // Fill the blank to make the code work
     let (x, z, y) = tup;
@@ -276,10 +278,10 @@ fn test28() {
 }
 
 #[test]
-fn test29() {
-    let (x, y, z);
-    // Fill the blank
-    (y, z, x) = (1, 2, 3);
+fn test629() {
+    //Fill the blank
+    let (a, b, c) = (1, 2, 3);
+    let (x, y, z) = (c, a, b);
     assert_eq!(x, 3);
     assert_eq!(y, 1);
     assert_eq!(z, 2);
@@ -287,7 +289,7 @@ fn test29() {
 }
 
 #[test]
-fn test30() {
+fn test630() {
     // Fill the blank, need a few computations here.
     let (x, y) = sum_multiply((3, 2));
     assert_eq!(x, 5);
@@ -297,10 +299,10 @@ fn test30() {
 fn sum_multiply(nums: (i32, i32)) -> (i32, i32) {
     (nums.0 + nums.1, nums.0 * nums.1)
 }
-
+/// https://practice.course.rs/compound-types/struct.html
 #[test]
 // Fix the error
-fn test31() {
+fn test631() {
     let age = 30;
     let _p = Person {
         name: String::from("sunface"),
@@ -316,6 +318,6 @@ fn test31() {
 }
 
 #[test]
-fn test32() {
+fn test632() {
 
 }
