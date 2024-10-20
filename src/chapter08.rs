@@ -147,7 +147,9 @@ fn test89() {
 }
 /// https://practice.course.rs/pattern-match/patterns.html
 #[test]
-fn test810() {} // No output
+fn test810() {
+    match_number(1);
+} // No output
     fn match_number(n: i32) {
     match n {
         // Match a single value
