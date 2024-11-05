@@ -9,6 +9,11 @@ mod chapter09;
 mod chapter10;
 mod chapter11;
 mod chapter12;
+mod cristmas_tree;
+mod envelope;
+mod gcd;
+mod rhombus;
+mod invert_the_case;
 
 fn main() {
     println!("Hello, world!");
