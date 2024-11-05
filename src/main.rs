@@ -7,13 +7,8 @@ mod chapter07;
 mod chapter08;
 mod chapter09;
 mod chapter10;
-mod rhombus;
-mod envelope;
-mod gcd;
 mod chapter11;
 mod chapter12;
-mod chapter13;
-mod chapter14;
 
 fn main() {
     println!("Hello, world!");
