@@ -18,6 +18,8 @@ mod is_prime;
 mod string_rotate;
 mod is_palindrome;
 mod random_vector;
+mod rectangles;
+mod muxa_slon;
 
 fn main() {
     println!("Hello, world!");
