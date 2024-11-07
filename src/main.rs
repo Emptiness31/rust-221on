@@ -14,6 +14,10 @@ mod envelope;
 mod gcd;
 mod rhombus;
 mod invert_the_case;
+mod is_prime;
+mod string_rotate;
+mod is_palindrome;
+mod random_vector;
 
 fn main() {
     println!("Hello, world!");
